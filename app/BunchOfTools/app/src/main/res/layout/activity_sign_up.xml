@@ -5,7 +5,7 @@
     android:id="@+id/activity_sign_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nowak01011111.damian.bunchoftools.activity.SignUpActivity">
+    tools:context="com.psim.project.bunchoftools.activity.SignUpActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

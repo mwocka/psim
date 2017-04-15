@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nowak01011111.damian.bunchoftools.fragments.CategoryListFragment"
+    tools:context="com.psim.project.bunchoftools.fragments.CategoryListFragment"
     android:id="@+id/category_recycler"
     android:scrollbars="vertical" />
 

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.nowak01011111.damian.bunchoftools.my_view.SquareImageView
+        <com.psim.project.bunchoftools.my_view.SquareImageView
             android:id="@+id/info_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
