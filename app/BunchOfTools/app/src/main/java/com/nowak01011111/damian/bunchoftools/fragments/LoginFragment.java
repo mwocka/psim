@@ -37,7 +37,6 @@ public class LoginFragment extends Fragment {
         inputPassword = (EditText) view.findViewById(R.id.input_password);
         loginButton = (Button) view.findViewById(R.id.login_button);
         signUpButton = (Button) view.findViewById(R.id.sign_up_button);
-        asEmployeeCheckBox = (CheckBox) view.findViewById(R.id.as_employee_checkBox);
 
         loginButton.setOnClickListener(view1 -> {
             loginOperation();
@@ -53,7 +52,7 @@ public class LoginFragment extends Fragment {
     private void loginOperation() {
         String login = inputUsername.getText().toString();
         String password = inputPassword.getText().toString();
-        boolean asEmployee = asEmployeeCheckBox.isChecked();
+        boolean asEmployee = false;
 
 
         if (mListener != null) {

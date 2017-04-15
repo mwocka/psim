@@ -33,7 +33,7 @@ public class ApiConnectionFragment extends Fragment {
     public static final String TAG = "ApiConnectionFragment";
     public static final String ERROR_CONNECTION_CANCELED = "Error: connection canceled.";
 
-    public static final String URL_API = "http://192.168.1.169:3000";
+    public static final String URL_API = "http://192.168.1.12:3000";
     public static final String URL_API_GET_MODEL_IMAGE = "/get/imgOfModel/";
 
     private static final String URL_API_LOGIN_USER = "/post/login";
