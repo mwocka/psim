@@ -84,6 +84,8 @@ public class ApiConnectionFragment extends Fragment {
         setRetainInstance(true);
     }
 
+    //co
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
