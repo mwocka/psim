@@ -8,8 +8,8 @@ const sql = require('mssql');
 
 const config = {
     user: 'api',
-    password: 'password',
-    server: 'localhost',
+    password: 'psim2017',
+    server: 'PAWEL',
     database: 'DB_projekt',
     options: {
         encrypt: true//if Windows Azure
