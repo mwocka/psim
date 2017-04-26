@@ -1,0 +1,14 @@
+.upper {
+  text-transform: uppercase;
+}
+.list-style-none {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.inline-block {
+  display: inline-block;
+}
+.basic-transition {
+  transition: all 0.2s ease-in-out;
+}

@@ -1,0 +1,39 @@
+@import "../styles/variables";
+
+.header-mixin(@font-size; @font-weight) {
+  font-size: @font-size;
+  font-weight: @font-weight;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.list-style-none {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.icon(@color; @font-size; @line-height: @line-height-base) {
+  color: @color;
+  font-size: @font-size;
+  line-height: @line-height;
+}
+
+.padding-top-bottom(@p-top; @p-bottom) {
+  padding: @p-top 0 @p-bottom;
+}
+
+.basic-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+// Cien
+.shadow(@properties) {
+  box-shadow: @properties;
+}

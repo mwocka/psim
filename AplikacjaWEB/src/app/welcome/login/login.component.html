@@ -1,0 +1,63 @@
+
+<button type="button" data-target="#login-modal" data-toggle="modal" class="btn btn-success ">
+  Login
+</button>
+
+<!-- Modal -->
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Login to Your Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+        <form [(formGroup)]="loginForm" novalidate #f="ngForm" (ngSubmit)="f.form.valid && login()">
+
+          <!-- FormControl: email -->
+          <fieldset class="form-group"
+                    [ngClass]="{ 'has-danger': (username.dirty || username.touched || f.submitted) && username.invalid, 'has-success': username.dirty && username.valid}">
+            <label>Username</label>
+            <input type="username" class="form-control form-control-danger form-control-success" formControlName="username">
+
+            <!-- Feedback dla emailu -->
+            <div class="form-control-feedback"
+                 *ngIf="(username.dirty || username.touched || f.submitted) && username.invalid">
+              <p *ngIf="username.errors.required">Username is required</p>
+            </div>
+          </fieldset>
+
+          <!-- FormControl: password -->
+          <fieldset class="form-group"
+                    [ngClass]="{ 'has-danger': (password.dirty || password.touched || f.submitted) && password.invalid, 'has-success': password.dirty && password.valid}">
+            <!-- Wpisz haslo -->
+            <label>Password</label>
+            <input type="password" class="form-control form-control-danger form-control-success" formControlName="password">
+
+            <!-- Feedback dla hasla -->
+            <div class="form-control-feedback"
+                 *ngIf="(password.dirty || password.touched || f.submitted) && password.invalid">
+              <p *ngIf="password.errors.required">Password is required</p>
+            </div>
+          </fieldset>
+
+          <div class="form-group text-center">
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
+            <img *ngIf="loading"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          </div>
+
+        </form>
+
+      </div><!-- /modal-body -->
+    </div>
+  </div>
+</div>

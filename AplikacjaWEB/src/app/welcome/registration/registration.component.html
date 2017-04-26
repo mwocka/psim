@@ -1,0 +1,87 @@
+<section class="container register-form">
+
+  <!-- FormGroup: registerForm -->
+  <form [(formGroup)]="registerForm" novalidate #f="ngForm">
+
+    <div class="row">
+
+      <!-- FormControl: firstName -->
+      <fieldset class="form-group col-12 col-sm-6"
+                [ngClass]="{ 'has-danger': (name.dirty || name.touched || f.submitted) && name.invalid, 'has-success': name.dirty && name.valid}">
+        <label>Name</label>
+        <input type="text" class="form-control form-control-danger form-control-success" formControlName="name">
+
+        <!-- Feedback dla imienia -->
+        <div class="form-control-feedback"
+             *ngIf="(name.dirty || name.touched || f.submitted) && name.invalid">
+          <p *ngIf="name.errors.required">Name is required</p>
+        </div>
+      </fieldset>
+
+      <!-- FormControl: lastName -->
+      <fieldset class="form-group col-12 col-sm-6"
+                [ngClass]="{ 'has-danger': (username.dirty || username.touched || f.submitted) && username.invalid, 'has-success': username.dirty && username.valid}">
+        <label>Username</label>
+        <input type="text" class="form-control form-control-danger form-control-success" formControlName="username">
+
+        <!-- Feedback dla nazwiska -->
+        <div class="form-control-feedback"
+             *ngIf="(username.dirty || username.touched || f.submitted) && username.invalid">
+          <p *ngIf="username.errors.required">Username is required</p>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <!-- FormControl: adress -->
+    <fieldset class="form-group"
+              [ngClass]="{ 'has-danger': (adress.dirty || adress.touched || f.submitted) && adress.invalid, 'has-success': adress.dirty && adress.valid}">
+      <label>Adress</label>
+      <input type="email" class="form-control form-control-danger form-control-success" formControlName="adress">
+
+      <!-- Feedback dla emailu -->
+      <div class="form-control-feedback"
+           *ngIf="(adress.dirty || adress.touched || f.submitted) && adress.invalid">
+        <p *ngIf="adress.errors.required">Adress is required</p>
+      </div>
+    </fieldset>
+
+
+    <div class="row">
+      <!-- FormControl: password -->
+      <fieldset class="form-group col-12 col-sm-6"
+                [ngClass]="{ 'has-danger': (password.dirty || password.touched || f.submitted) && password.invalid, 'has-success': password.dirty && password.valid}">
+        <!-- Wpisz haslo -->
+        <label>Password</label>
+        <input type="password" class="form-control form-control-danger form-control-success" formControlName="password">
+
+        <!-- Feedback dla hasla -->
+        <div class="form-control-feedback"
+             *ngIf="(password.dirty || password.touched || f.submitted) && password.invalid">
+          <p *ngIf="password.errors.required">Password is required</p>
+          <p *ngIf="password.errors.pattern || password.errors.minlength || password.errors.maxlength">Password must be between 8-30 characters and contain at least one lower case, one uppercase, one digit and one special character.</p>
+        </div>
+      </fieldset>
+
+      <!-- confirmPassword -->
+      <fieldset class="form-group col-12 col-sm-6"
+                [ngClass]="{ 'has-danger': (confirmPassword.dirty || confirmPassword.touched || f.submitted) && (confirmPassword.invalid || (password.value != confirmPassword.value)), 'has-success': confirmPassword.dirty && (password.value == confirmPassword.value) }">
+        <label>Retype password</label>
+        <input type="password" class="form-control form-control-danger form-control-success" formControlName="confirmPassword">
+
+        <!-- Feedback dla potwotrz haslo -->
+        <div class="form-control-feedback"
+             *ngIf="(confirmPassword.dirty || confirmPassword.touched || f.submitted) && (password.value != confirmPassword.value)">
+          <p *ngIf="password.value != confirmPassword.value">Passwords do not match.</p>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <div class="form-group text-center">
+      <button [disabled]="loading" class="btn btn-primary">Register</button>
+    </div>
+
+  </form>
+
+</section>
