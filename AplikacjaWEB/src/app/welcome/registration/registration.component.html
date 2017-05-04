@@ -1,7 +1,9 @@
 <section class="container register-form">
 
+  <div *ngIf="error" class="alert alert-danger text-center">{{error}}</div>
+  <div *ngIf="success" class="alert alert-success text-center">{{success}}</div>
   <!-- FormGroup: registerForm -->
-  <form [(formGroup)]="registerForm" novalidate #f="ngForm">
+  <form [(formGroup)]="registerForm" novalidate #f="ngForm" (ngSubmit)="f.form.valid && register()">
 
     <div class="row">
 
@@ -35,14 +37,14 @@
 
     <!-- FormControl: adress -->
     <fieldset class="form-group"
-              [ngClass]="{ 'has-danger': (adress.dirty || adress.touched || f.submitted) && adress.invalid, 'has-success': adress.dirty && adress.valid}">
+              [ngClass]="{ 'has-danger': (address.dirty || address.touched || f.submitted) && address.invalid, 'has-success': address.dirty && address.valid}">
       <label>Adress</label>
-      <input type="email" class="form-control form-control-danger form-control-success" formControlName="adress">
+      <input type="text" class="form-control form-control-danger form-control-success" formControlName="address">
 
       <!-- Feedback dla emailu -->
       <div class="form-control-feedback"
-           *ngIf="(adress.dirty || adress.touched || f.submitted) && adress.invalid">
-        <p *ngIf="adress.errors.required">Adress is required</p>
+           *ngIf="(address.dirty || address.touched || f.submitted) && address.invalid">
+        <p *ngIf="address.errors.required">Adress is required</p>
       </div>
     </fieldset>
 
@@ -80,6 +82,8 @@
 
     <div class="form-group text-center">
       <button [disabled]="loading" class="btn btn-primary">Register</button>
+      <img *ngIf="loading"
+           src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
     </div>
 
   </form>

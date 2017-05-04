@@ -1,0 +1,75 @@
+<button type="button" data-target="#end-transaction-modal" data-toggle="modal" class="btn btn-success ">
+  End transaction
+</button>
+
+<!-- Modal -->
+
+<div class="modal fade" id="end-transaction-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="">End Transaction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+        <form [(formGroup)]="endtransactionForm" novalidate #f="ngForm" (ngSubmit)="f.form.valid && endtransaction()">
+
+
+          <fieldset class="form-group"
+                    [ngClass]="{ 'has-danger': (data_end.dirty || data_end.touched || f.submitted) && data_end.invalid, 'has-success': data_end.dirty && data_end.valid}">
+            <label>End Data</label>
+            <input type="dataEnd" class="form-control form-control-danger form-control-success" formControlName="data_end">
+
+
+            <div class="form-control-feedback"
+                 *ngIf="(data_end.dirty || data_end.touched || f.submitted) && data_end.invalid">
+              <p *ngIf="data_end.errors.required">Data end is required</p>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="form-group"
+                    [ngClass]="{ 'has-danger': (price.dirty || price.touched || f.submitted) && price.invalid, 'has-success': price.dirty && price.valid}">
+
+            <label>Price</label>
+            <input type="price" class="form-control form-control-danger form-control-success" formControlName="price">
+
+
+            <div class="form-control-feedback"
+                 *ngIf="(price.dirty || price.touched || f.submitted) && price.invalid">
+              <p *ngIf="price.errors.required">Price is required</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group"
+                    [ngClass]="{ 'has-danger': (transactionId.dirty || transactionId.touched || f.submitted) && transactionId.invalid, 'has-success': transactionId.dirty && transactionId.valid}">
+
+            <label>Transaction Id</label>
+            <input type="price" class="form-control form-control-danger form-control-success" formControlName="transactionId">
+
+
+            <div class="form-control-feedback"
+                 *ngIf="(transactionId.dirty || transactionId.touched || f.submitted) && transactionId.invalid">
+              <p *ngIf="transactionId.errors.required">Transaction Id is required</p>
+            </div>
+          </fieldset>
+
+          <div class="form-group text-center">
+            <button [disabled]="loading" class="btn btn-primary">End transaction</button>
+            <img *ngIf="loading"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          </div>
+
+        </form>
+
+      </div><!-- /modal-body -->
+    </div>
+  </div>
+</div>

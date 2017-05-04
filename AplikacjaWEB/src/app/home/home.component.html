@@ -1,3 +1,116 @@
-<p>
-  home works!
-</p>
+<div class="first-page-header">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+
+      <div class="row justify-content-between ">
+
+        <p class="navbar-brand mb-0">{{webTitle}}</p>
+        <div class="float-right">
+
+          <a [routerLink]="['/welcome']">
+            <button type="button" data-target="#login-modal" data-toggle="modal" class="btn btn-success ">Logout</button>
+          </a>
+          <app-make-transaction></app-make-transaction>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<div class="container flexbox-parent">
+  <table align="center">
+
+<tr>
+  <td>
+    <div class="text-center first-page-logo">
+      <img src="../../../src/images/reservation.png" class="img-fluid rounded myImg">
+
+      <p></p>
+      <p><a [routerLink]="['/reservations']">
+        <button type="button" class="btn btn-success ">Reservation</button>
+      </a></p>
+    </div>
+  </td>
+  <td>
+  <div class="text-center first-page-logo">
+        <img src="../../../src/images/logo.png" class="img-fluid rounded myImg">
+        <p></p>
+        <p><a [routerLink]="['/items']">
+          <button type="button" class="btn btn-success ">Items</button>
+        </a></p>
+  </div>
+  </td>
+  <td>
+    <div class="text-center first-page-logo">
+    <img src="../../../src/images/transaction.png" class="img-fluid rounded myImg">
+
+    <p></p>
+    <p><a [routerLink]="['/transactions']">
+      <button type="button" class="btn btn-success ">Transaction</button>
+    </a></p>
+    </div>
+  </td>
+
+      <td>
+        <div class="text-center first-page-logo">
+        <img src="../../../src/images/user.png" class="img-fluid rounded myImg">
+    <p></p>
+    <p><a [routerLink]="['/employee']">
+      <button type="button" class="btn btn-success ">Employee</button>
+    </a></p>
+        </div>
+      </td>
+    </tr>
+
+
+
+    </table>
+</div>
+
+
+<!-- Stopka -->
+<footer>
+  <!-- Gorna czesc stopki -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row">
+
+        <!-- Pierwsza kolumna (o nas) -->
+        <div class="col-12 col-md-4 about-us">
+          <h4>About us</h4>
+          <p>We change the world.</p>
+        </div>
+
+        <!-- Druga kolumna (artykuly) -->
+        <div class="col-12 col-md-4 our-blog">
+          <div class="footer-col-container">
+            <h4>References</h4>
+            <ul>
+              <li><a href="https://github.com/mwocka/psim">Github</a></li>
+              <li><a href="https://trello.com/b/nRCzwVN4/projekt-psim">Trelo</a></li>
+              <li><a href="">Shop</a></li>
+              <li><a href="">Login</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Trzecia kolumna (linki)-->
+        <div class="col-12 col-md-4 our-links">
+          <h4>Contact</h4>
+          <p>218260@student.edu.pwr.pl</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dolna czesc stopki -->
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 copyright-content text-center">
+          <p>Copyright <i class="fa fa-copyright" ></i> 2017</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+

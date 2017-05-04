@@ -1,8 +1,6 @@
 "use strict";
 
-/**
- * Created by Tomasz Czart on 14.01.2017.
- */
+
 
 const router = require('express').Router();
 const sql = require('../../db/db-connection');

@@ -1,8 +1,5 @@
 "use strict";
 
-/**
- * Created by Tomasz Czart on 11.11.2016.
- */
 
 const sql = require('mssql');
 

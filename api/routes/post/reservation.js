@@ -1,8 +1,5 @@
 "use strict";
 
-/**
- * Created by Tomasz Czart on 27.12.2016.
- */
 
 const router = require('express').Router();
 const bcrypt = require('bcrypt-nodejs');

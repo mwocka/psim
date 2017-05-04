@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {LoginService} from '../../_services/login.service';
+import {UserService} from '../../_services/user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
+
 })
 export class LoginComponent implements OnInit {
+  token: Promise<string>;
 
   loading = false;
   error = '';
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   private username: FormControl = new FormControl();
   private password: FormControl = new FormControl();
 
-  constructor(private router: Router, private loginService: LoginService) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   createFormControls(): void {
@@ -38,12 +40,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.createFormControls();
     this.createForm();
-    this.loginService.logout();
+    this.userService.logout();
   }
 
   login() {
     this.loading = true;
-    this.loginService.login(this.username.value, this.password.value)
+
+    this.userService.login(this.username.value, this.password.value)
       .subscribe(
         result => {
           this.router.navigate(['/home']);
@@ -51,14 +54,21 @@ export class LoginComponent implements OnInit {
             location.reload();
           }, 1);
         },
+
         error => {
           this.error = 'Username or password is incorrect';
           this.loading = false;
           this.loginForm.reset();
           this.username.setErrors(null);
           this.password.setErrors(null);
+          //this.error = error.toString().substr(7, error.length);
         }
+
       );
+
+
+
   }
+
 
 }
